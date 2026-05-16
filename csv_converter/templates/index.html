@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV to Excel Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📊 CSV to Excel Converter</h1>
+                <p>Upload CSV • Edit Data • Download Excel</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section id="uploadSection" class="section upload-section active">
+                <div class="upload-box">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h2>Upload CSV File</h2>
+                    <p>Drag and drop your CSV file here</p>
+                    
+                    <div class="file-input-wrapper">
+                        <input 
+                            type="file" 
+                            id="fileInput" 
+                            accept=".csv" 
+                            class="file-input"
+                        >
+                        <button class="btn btn-primary">Choose File</button>
+                    </div>
+                    
+                    <p class="file-info" id="fileName"></p>
+                </div>
+
+                <div class="tips">
+                    <h3>💡 Tips</h3>
+                    <ul>
+                        <li>Use CSV format (.csv files only)</li>
+                        <li>First row should contain column names</li>
+                        <li>Maximum file size: 16MB</li>
+                        <li>Missing values will be marked as "N/A"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Data Section -->
+            <section id="dataSection" class="section active" style="display: none;">
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-left">
+                        <button id="backBtn" class="btn btn-secondary">← Back</button>
+                        <span class="file-name" id="displayFileName"></span>
+                    </div>
+                    
+                    <div class="toolbar-right">
+                        <button id="addRowBtn" class="btn btn-secondary" title="Add new row">
+                            ➕ Add Row
+                        </button>
+                        <button id="addColBtn" class="btn btn-secondary" title="Add new column">
+                            ➕ Add Column
+                        </button>
+                        <button id="downloadExcelBtn" class="btn btn-success" title="Download as Excel">
+                            📥 Excel
+                        </button>
+                        <button id="downloadCSVBtn" class="btn btn-success" title="Download as CSV">
+                            📥 CSV
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Rows:</span>
+                        <span class="stat-value" id="rowCount">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Columns:</span>
+                        <span class="stat-value" id="colCount">0</span>
+                    </div>
+                </div>
+
+                <!-- Table Container -->
+                <div class="table-wrapper">
+                    <table id="dataTable" class="data-table">
+                        <thead>
+                            <tr id="headerRow"></tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Toast Notifications -->
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

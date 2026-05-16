@@ -1,0 +1,11 @@
+Name,Email,Date,Salary,Department,Notes
+John Doe,john@example.com,2023-01-15,50000,Engineering,
+Jane Smith,jane@example.com,2023-02-20,55000,HR,Excellent performer
+Bob Johnson,bob@example.com,2023-03-10,48000,Sales,
+Alice Williams,,2023-04-05,60000,Engineering,Training in progress
+Charlie Brown,charlie@example.com,,52000,Marketing,
+David Lee,david@example.com,2023-06-12,58000,Engineering,
+Emma Davis,emma@example.com,2023-07-08,51000,HR,
+Frank Miller,frank@example.com,2023-08-19,,Sales,Negotiating salary
+Grace Taylor,grace@example.com,2023-09-22,62000,Engineering,Senior Developer
+Henry Anderson,henry@example.com,2023-10-30,49000,Marketing,New hire
